@@ -1,7 +1,7 @@
 
 stateDiagram-v2
     [*] --> No_Autenticado
-    No_Autenticado --> Autenticado: Login Exitoso (id_estado = 1)
+    No_Autenticado --> Autenticado: Login Exitoso (id_estado = 2)
     
     state Autenticado {
         [*] --> Explorando: Navega por CURSO / MODULO
