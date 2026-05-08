@@ -7,3 +7,4 @@
 | **Login** | `validarCredenciales()` | [cite_start]CU-16.1 Iniciar Sesión [cite: 1194] |
 | **Ejercicio** | `evaluarRespuesta()` | [cite_start]CU-16.8 Resolver ejercicios [cite: 1194] |
 | **Progreso** | `actualizarProgreso()` | [cite_start]CU-16.7 Ver progreso [cite: 816] |
+
