@@ -7,3 +7,4 @@
 | **Registro** | [cite_start]Login [cite: 1200] | [cite_start]Redirección tras crear cuenta[cite: 1151]. |
 | **Dashboard** | [cite_start]Ejercicios [cite: 1200] | [cite_start]Inicio de la ruta de aprendizaje[cite: 1155]. |
 | **Ejercicios** | Resultados | [cite_start]Visualización de retroalimentación inmediata[cite: 1155]. |
+
