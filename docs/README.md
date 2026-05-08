@@ -15,3 +15,11 @@
 | **E9-E10 - Modelo Relacional** | [cite_start]Estructura lógica que se traduce en clases `@Entity` de Java, permitiendo la comunicación entre el objeto y la tabla mediante JPA [cite: 17, 48-112]. |
 | **E7 - Diccionario de Datos** | [cite_start]Define las validaciones y restricciones técnicas (como `@Column`) y tipos de variables (String, Integer) en los modelos [cite: 1-15, 48-112]. |
 | **E8 - MER** | [cite_start]Determina la cardinalidad y lógica de las relaciones que se implementan en el código mediante anotaciones como `@ManyToOne` [cite: 16, 48-112]. |
+
+### FASE 3 → Lógica de Negocio
+
+| Artefacto de Diseño | Lo que genera en el Framework |
+| :--- | :--- |
+| **E12 - Diagrama de Clases** | [cite_start]Estructura de Clases de Entidad, Interfaces de Repositorios y lógica de Servicios en el backend . |
+| **E13 - Diagramas de Secuencia** | [cite_start]Define el flujo de los métodos en los Controladores y la interacción entre servicios para procesar peticiones . |
+| **E14 - Diagrama de Estados** | [cite_start]Determina los campos de estado en la base de datos (como en `ESTADO_USUARIO`) y la lógica para transiciones de procesos . |
