@@ -1,16 +1,6 @@
 # Registro de Decisiones Arquitectónicas (ADR) - Plataforma Educativa
 
 
-# Registro de Decisiones Arquitectónicas
-
-## 1. Elección del Motor de Base de Datos
-**Decisión:** Se optó por utilizar **Microsoft SQL Server**.
-**Sustentación:** Debido a su robustez en entornos empresariales y su excelente integración con el ecosistema de Java a través de drivers JDBC oficiales. Además, permite un manejo eficiente de procedimientos almacenados y disparadores para futuras fases del proyecto.
-
-## 2. Implementación de Arquitectura por Capas
-**Decisión:** Se implementó un patrón de diseño basado en **capas (Controller, Repository, Model)**.
-**Sustentación:** Esta separación de responsabilidades facilita el mantenimiento del código. La lógica de acceso a datos queda aislada en los Repositorios, mientras que la exposición de servicios se maneja en los Controladores, permitiendo que el framework Spring Boot gestione el ciclo de vida de los objetos de manera eficiente.
-
 
 
 
