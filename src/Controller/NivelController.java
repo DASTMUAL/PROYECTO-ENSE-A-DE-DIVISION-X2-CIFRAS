@@ -1,19 +1,29 @@
-package com.plataforma_educativa.educativa.controller;
+package com.plataforma_educativa.educativa.model;
 
-import com.plataforma_educativa.educativa.model.Nivel;
-import com.plataforma_educativa.educativa.repository.NivelRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import java.util.List;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import lombok.Data;
 
-@RestController
-@RequestMapping("/niveles")
-public class NivelController {
-    @Autowired
-    private NivelRepository nivelRepository;
+@Entity
+@Table(name = "NIVEL", schema = "dbo")
+@Data
+public class Nivel {
 
-    @GetMapping
-    public List<Nivel> listar() {
-        return nivelRepository.findAll();
-    }
+    @Id
+    @NotNull(message = "El id del nivel no puede ser null")
+    @Column(name = "id_nivel", nullable = false)
+    private Integer idNivel;
+
+    @NotBlank(message = "El nombre no puede estar vacío")
+    @Size(max = 25)
+    @Column(name = "nombre", nullable = false, length = 25)
+    private String nombre;
+
+    @Size(max = 50)
+    @Column(name = "descripcion", length = 50)
+    private String descripcion;
+
+    @NotNull(message = "El puntaje del nivel no puede ser null")
+    @Column(name = "puntaje_nivel", nullable = false)
+    private Integer puntajeNivel;
 }
