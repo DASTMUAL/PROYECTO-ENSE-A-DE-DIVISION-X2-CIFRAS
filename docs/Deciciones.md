@@ -20,8 +20,10 @@
 ## 4. Seguridad de Acceso a Datos
 **Decisión:** Configuración de **Autenticación Mixta** y usuario de servicio.
 **Sustentación:** Se descartó el uso de Autenticación de Windows para evitar problemas de permisos de sistema operativo. Se habilitó el usuario `sa` con una política de contraseñas específica para permitir que la aplicación se autentique de forma independiente.
----------------------------------------
----------------------------------------
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
 
 
 # DECISIONES TÉCNICAS
