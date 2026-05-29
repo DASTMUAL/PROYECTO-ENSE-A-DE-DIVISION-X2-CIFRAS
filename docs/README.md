@@ -182,4 +182,4 @@ El proyecto utiliza arquitectura MVC:
 
 # Repositorio del compañero
 
-Pendiente por agregar.
+https://github.com/Santiagols0923/plataforma_educativa
