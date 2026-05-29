@@ -26,6 +26,7 @@
     * Desarrollo del controlador `RolController` para exposición de datos vía API REST.
 * **Resultado:** CRUD de tablas maestras funcionando y verificado mediante peticiones HTTP al puerto 8080.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # BITACORA DE DESARROLLO
 
@@ -33,123 +34,149 @@
 
 ---
 
-# Entrada 1
+# Entrada #01 — 08/05/2026
 
-## Fecha: 08/05/2026
+## ¿Qué hice?
 
-Durante esta etapa se inició el análisis del proyecto y la construcción del modelo entidad relación (MER) de la plataforma educativa. Se definieron las tablas principales del sistema, incluyendo usuarios, roles, módulos, ejercicios, niveles y resultados.
+Durante esta etapa se realizó el análisis inicial del proyecto y la construcción del modelo entidad relación (MER) de la plataforma educativa. Se definieron las tablas maestras y transaccionales del sistema, incluyendo usuario, rol, estado_usuario, modulo, ejercicio, nivel, resultado y progreso.
 
-También se realizó el análisis de relaciones entre tablas maestras y transaccionales para garantizar la integridad referencial en SQL Server.
-
-### Actividades realizadas
-
-* Diseño inicial del MER
-* Definición de claves primarias y foráneas
-* Creación de tablas maestras
-* Planeación de arquitectura MVC
-
-### Problemas encontrados
-
-Se presentaron dudas en la relación entre las tablas transaccionales y las tablas maestras, especialmente en la tabla resultado.
-
-### Solución aplicada
-
-Se reorganizaron las relaciones utilizando claves foráneas para mantener la integridad de los datos.
-
-### Uso de IA
-
-Se utilizó IA como apoyo para validar relaciones y estructura inicial del modelo relacional.
+También se inició la creación del backend con Spring Boot utilizando arquitectura MVC, creando entidades JPA, repositories y controllers básicos.
 
 ---
 
-# Entrada 2
+## ¿Qué problema encontré?
 
-## Fecha: 15/05/2026
+Se presentaron dificultades al momento de relacionar correctamente las tablas mediante claves foráneas y definir qué tablas debían considerarse maestras y cuáles transaccionales.
 
-En esta etapa se desarrolló la estructura backend utilizando Spring Boot, creando las entidades JPA, repositories y controllers para las tablas principales del sistema.
-
-Además, se implementó el sistema de autenticación básica con inicio de sesión por roles.
-
-### Actividades realizadas
-
-* Creación de entidades JPA
-* Implementación de repositories
-* Implementación de controllers
-* Configuración de conexión con SQL Server
-* Desarrollo del login
-* Validación de usuarios por rol
-
-### Problemas encontrados
-
-Se presentaron errores relacionados con las relaciones entre entidades y validaciones en Thymeleaf.
-
-### Solución aplicada
-
-Se corrigieron las anotaciones JPA y se reorganizaron las rutas de los controllers para mejorar la conexión entre frontend y backend.
-
-### Uso de IA
-
-Se utilizó IA para validar estructura de controladores, relaciones JPA y manejo de vistas Thymeleaf.
+También surgieron dudas relacionadas con la estructura correcta de entidades JPA y las relaciones @ManyToOne.
 
 ---
 
-# Entrada 3
+## ¿Cómo lo resolví?
 
-## Fecha: 22/05/2026
+Se reorganizó el modelo relacional utilizando claves foráneas para mantener la integridad referencial. Posteriormente se corrigieron las relaciones JPA y se ajustaron los modelos utilizando anotaciones como:
 
-Se inició el desarrollo visual del sistema utilizando Thymeleaf y CSS. Se implementó el CRUD visual para la tabla maestra usuario y posteriormente para la tabla transaccional resultado.
+* @ManyToOne
+* @JoinColumn
+* @Entity
 
-También se desarrolló la lógica de redirección por roles.
+También se verificó la estructura de las tablas directamente desde SQL Server.
 
-### Actividades realizadas
+---
 
-* Desarrollo visual de usuarios
-* Desarrollo visual de resultados
-* Diseño CSS responsive
+## ¿Usé IA?
+
+Sí.
+
+### ¿Qué ajusté del resultado?
+
+Se ajustaron las relaciones propuestas por IA para adaptarlas al MER definido en el proyecto y a los nombres reales de las tablas y atributos utilizados en SQL Server.
+
+---
+
+# Entrada #02 — 15/05/2026
+
+## ¿Qué hice?
+
+Se desarrolló la lógica backend utilizando Spring Boot y SQL Server. Durante esta etapa se implementó:
+
+* CRUD de usuarios
+* Login funcional
+* Validación por roles
+* Registro de estudiantes
+* Controllers visuales con Thymeleaf
+* Conexión frontend y backend
+
+También se desarrolló la vista visual de usuarios con HTML y CSS, permitiendo registrar, listar y eliminar usuarios desde el navegador.
+
+---
+
+## ¿Qué problema encontré?
+
+Se presentaron errores relacionados con Thymeleaf y el envío de objetos Model desde los controllers. También hubo inconvenientes relacionados con rutas inexistentes y validaciones de formularios.
+
+Además, se detectó que los IDs manuales generaban problemas al registrar usuarios desde el sistema visual.
+
+---
+
+## ¿Cómo lo resolví?
+
+Se reorganizaron los controllers utilizando:
+
+* @Controller
+* @GetMapping
+* @PostMapping
+
+También se corrigieron rutas, formularios y atributos enviados mediante Model.
+
+Finalmente se decidió utilizar IDs autoincrementables para facilitar el registro automático de usuarios.
+
+---
+
+## ¿Usé IA?
+
+Sí.
+
+### ¿Qué ajusté del resultado?
+
+Se ajustaron rutas, nombres de atributos, formularios Thymeleaf y validaciones sugeridas por IA para que coincidieran con la estructura real del proyecto.
+
+---
+
+# Entrada #03 — 28/05/2026
+
+## ¿Qué hice?
+
+Durante esta etapa final se implementó el CRUD visual de la tabla transaccional resultado, incluyendo:
+
+* Relación entre usuario y ejercicio
+* Fecha automática
 * CRUD visual
-* Integración frontend y backend
-* Registro automático de estudiantes
-* Fecha automática en resultados
+* Diseño moderno con CSS
+* Validación de login por roles
 
-### Problemas encontrados
+También se desarrolló la lógica para diferenciar administradores y estudiantes:
 
-Se presentaron errores de conexión entre Thymeleaf y los modelos enviados desde los controllers.
+* Rol 1 → administrador
+* Rol 2 → estudiante
 
-### Solución aplicada
+Dependiendo del rol, el sistema redirecciona automáticamente a diferentes vistas.
 
-Se corrigieron los atributos enviados mediante Model y se reorganizaron las rutas de acceso a las vistas.
-
-### Uso de IA
-
-Se utilizó IA como apoyo para mejorar estilos visuales, corregir errores de Thymeleaf y optimizar la estructura visual del sistema.
+Además, se realizaron pruebas funcionales completas del sistema utilizando SQL Server y Spring Boot.
 
 ---
 
-# Entrada 4
+## ¿Qué problema encontré?
 
-## Fecha: 28/05/2026
+Se presentaron inconvenientes relacionados con:
 
-Durante esta etapa final se realizaron pruebas generales del sistema, validando el funcionamiento del login, los roles, el CRUD visual y las relaciones entre tablas.
+* Fechas tipo datetime2(7)
+* Filtrado de estudiantes por rol
+* Conexión de CSS con Thymeleaf
+* IDs manuales en tablas transaccionales
 
-Además, se realizó documentación técnica del proyecto mediante README, bitácora y decisiones técnicas.
+También hubo errores de sintaxis y mapeo en consultas derivadas de JPA.
 
-### Actividades realizadas
+---
 
-* Pruebas funcionales del sistema
-* Validación de roles administrador y estudiante
-* Verificación de persistencia en SQL Server
-* Mejoras visuales del sistema
-* Organización del proyecto
-* Documentación técnica
+## ¿Cómo lo resolví?
 
-### Problemas encontrados
+Se implementó:
 
-Se detectaron inconvenientes relacionados con IDs manuales en algunas tablas y filtrado de usuarios por rol.
+* LocalDateTime.now() para fechas automáticas
+* Mejor organización de controllers visuales
+* Corrección de rutas CSS
+* Ajustes en consultas JPA
+* Validaciones de roles en login
 
-### Solución aplicada
+También se reorganizó la estructura visual para mejorar la presentación del sistema.
 
-Se analizaron mejoras futuras relacionadas con IDs autoincrementables y optimización de consultas JPA.
+---
 
-### Uso de IA
+## ¿Usé IA?
 
-Se utilizó IA como apoyo para documentación técnica, mejora visual y validación de funcionalidades del sistema.
+Sí.
+
+### ¿Qué ajusté del resultado?
+
+Se ajustaron estilos visuales, validaciones, consultas JPA, relaciones entre entidades y lógica de redirección por roles para adaptarlos a la arquitectura real del proyecto y los requerimientos del parcial.
